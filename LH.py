@@ -2,13 +2,13 @@ import json
 import time
 import requests
 import os
+from datetime import datetime
+from datetime import timedelta
 from tencentcloud.common import credential
 from tencentcloud.common.profile.client_profile import ClientProfile
 from tencentcloud.common.profile.http_profile import HttpProfile
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
 from tencentcloud.lighthouse.v20200324 import lighthouse_client, models
-from datetime import datetime
-from datetime import timedelta
 
 gaojinData="流量告警"
 gaojinResult="流量结果"
@@ -131,7 +131,6 @@ def dofetch(id, key, region):
         #添加时间戳
         time_stamp = time.time()
         utc_time = datetime.utcfromtimestamp(time_stamp)
-        time1 = utc_time + timedelta(hours=8)
         print (utc_time + timedelta(hours=8))
         print ("--------------------")
         gaojinTime="流量告警时间：\n"+utc_time + timedelta(hours=8)+"\n"+"(该时间较北京时间晚8小时)"+"\n"+"\n"
