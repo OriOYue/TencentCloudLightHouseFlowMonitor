@@ -132,9 +132,9 @@ def dofetch(id, key, region):
         time_stamp = time.time()
         utc_time = datetime.utcfromtimestamp(time_stamp)
         time1 = utc_time + timedelta(hours=8)
-        print (time1)
+        print (utc_time + timedelta(hours=8))
         print ("--------------------")
-        gaojinTime="流量告警时间：\n"+time1+"\n"+"(该时间较北京时间晚8小时)"+"\n"+"\n"
+        gaojinTime="流量告警时间：\n"+utc_time + timedelta(hours=8)+"\n"+"(该时间较北京时间晚8小时)"+"\n"+"\n"
         gaojin=gaojinData+"\n"+"\n"+gaojinSatus+"\n"+"\n"+gaojinResult+"\n"+"\n"+gaojinTime
         sendmessage(gaojin)
         
