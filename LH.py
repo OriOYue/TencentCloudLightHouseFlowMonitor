@@ -18,7 +18,7 @@ SecretId = os.environ["SecretId"]
 SecretKey = os.environ["SecretKey"]
 
 regions = ["ap-beijing", "ap-chengdu", "ap-guangzhou", "ap-hongkong", "ap-nanjing", "ap-shanghai", "ap-singapore", "ap-tokyo", "eu-moscow", "na-siliconvalley"]
-percent = 0.90  # 流量限额，1表示使用到100%关机，默认设置为95%
+percent = 0.90  # 流量限额，1表示使用到100%关机，默认设置为90%
 tgToken = os.environ["tgToken"]
 webhook = os.environ["webhook"]
 
@@ -33,7 +33,7 @@ def sendmessage(message):
         "text": {"content": message},
         "at": {
             "atMobiles": [
-                "13771044535"                                    #如果需要@某人，这里写他的手机号
+                "1*********5"                                    #如果需要@某人，这里写他的手机号
             ],
             "isAtAll": 0                                         #如果需要@所有人，这里写1
         }
@@ -128,13 +128,13 @@ def dofetch(id, key, region):
             gaojinSatus="流量告警状态：已关机!"
             print("已关机")
         
-        #添加时间戳
+        #添加时间戳 北京时间
         time_stamp = time.time()
         utc_time = datetime.utcfromtimestamp(time_stamp)
         time1 =str(utc_time + timedelta(hours=8))
         print (time1)
         print ("--------------------")
-        gaojinTime="流量告警时间：\n"+time1+"\n"+"UTC+8"+"\n"+"\n"
+        gaojinTime="流量告警时间：\n"+"北京时间"+time1+"\n"+"\n"+"\n"
         gaojin=gaojinData+"\n"+"\n"+gaojinSatus+"\n"+"\n"+gaojinResult+"\n"+"\n"+gaojinTime
         sendmessage(gaojin)
         
