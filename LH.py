@@ -134,7 +134,7 @@ def dofetch(id, key, region):
         time1 =str(utc_time + timedelta(hours=8))
         print (time1)
         print ("--------------------")
-        gaojinTime="流量告警时间：\n"+time1+"\n"+"GMT+0800 (中国标准时间)"+"\n"+"\n"+"\n"
+        gaojinTime="流量告警时间：\n"+time1+"\n"+"UTC+0800 (中国标准时间)"+"\n"+"\n"+"\n"
         gaojin=gaojinData+"\n"+"\n"+gaojinSatus+"\n"+"\n"+gaojinResult+"\n"+"\n"+gaojinTime
         sendmessage(gaojin)
         
